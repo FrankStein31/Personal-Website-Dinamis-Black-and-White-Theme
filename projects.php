@@ -971,17 +971,17 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
                 width: 80%;
                 max-width: 300px;
                 height: 100vh;
-                background-color: rgba(2, 6, 15, 0.98);
+                background-color: rgba(255, 255, 255, 0.98);
                 backdrop-filter: blur(25px);
                 -webkit-backdrop-filter: blur(25px);
                 flex-direction: column;
                 justify-content: center;
                 gap: 35px;
                 padding: 40px;
-                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6);
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.05);
                 transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
                 z-index: 1001;
-                border-left: 1px solid var(--glass-border);
+                border-left: 1px solid var(--border-steel);
             }
             .nav-links.active {
                 transform: translateX(0);
@@ -1008,15 +1008,15 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
 <body>
 
     <div class="glow-blob" style="top: -100px; right: -100px;"></div>
-    <div class="glow-blob" style="top: 35%; left: -250px; background: radial-gradient(circle, rgba(79, 172, 254, 0.05) 0%, rgba(3, 10, 22, 0) 70%); animation-delay: -3s;"></div>
-    <div class="glow-blob" style="bottom: 10%; right: -200px; background: radial-gradient(circle, rgba(0, 242, 254, 0.05) 0%, rgba(3, 10, 22, 0) 70%); animation-delay: -6s;"></div>
+    <div class="glow-blob" style="top: 35%; left: -250px; animation-delay: -3s;"></div>
+    <div class="glow-blob" style="bottom: 10%; right: -200px; animation-delay: -6s;"></div>
 
     <!-- Navigation Bar -->
     <header id="navbar">
         <div class="container">
             <nav>
                 <a href="index.php" class="logo">
-                    <i class="fa-solid fa-clapperboard"></i>
+                    <i class="fa-solid fa-laptop-code"></i>
                     <span><?= !empty($name) ? htmlspecialchars($name) : 'PORTFOLIO' ?></span>
                 </a>
                 
@@ -1084,7 +1084,7 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
                                                             <iframe src="files/<?= htmlspecialchars($file) ?>#page=1&toolbar=0&navpanes=0&scrollbar=0" scrolling="no"></iframe>
                                                             <div class="iframe-overlay"></div>
                                                         <?php else: ?>
-                                                            <div class="icon-fallback" style="font-size:3rem; color:var(--rose-gold); text-align: center;"><i class="fa-solid fa-clapperboard"></i></div>
+                                                            <div class="icon-fallback" style="font-size:3rem; color:var(--text-muted); text-align: center;"><i class="fa-solid fa-cube"></i></div>
                                                         <?php endif; ?>
                                                     </div>
                                                 <?php endforeach; ?>
