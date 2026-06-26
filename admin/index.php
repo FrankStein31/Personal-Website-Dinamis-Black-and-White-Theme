@@ -44,13 +44,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     <style>
         :root {
-            --primary: #1F4E6B; /* Matte Steel Blue */
-            --primary-hover: #9FB8C9; /* Light Slate Blue */
-            --bg-deep: #081A2E; /* Deepest Cinema Shadow */
-            --card-bg: rgba(14, 42, 71, 0.85); /* Studio Room Grid */
-            --border: rgba(31, 78, 107, 0.5); /* Steel Border */
-            --text-main: #F2F5F7; /* Crisp Ice White */
-            --text-muted: #9FB8C9;
+            --primary: #111827;
+            --primary-hover: #374151;
+            --bg-deep: #F3F4F6;
+            --card-bg: #FFFFFF;
+            --border: #E5E7EB;
+            --text-main: #111827;
+            --text-muted: #6B7280;
             --danger: #EF4444;
             --radius-md: 12px;
             --radius-lg: 20px;
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         body {
             font-family: var(--font-body);
-            background: linear-gradient(135deg, var(--bg-deep) 0%, #0E2A47 50%, var(--bg-deep) 100%);
+            background: var(--bg-deep);
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(31, 78, 107, 0.4) 0%, rgba(8, 26, 46, 0) 70%);
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
             top: -50px;
             right: -50px;
             z-index: 1;
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             width: 400px;
             height: 400px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(31, 78, 107, 0.3) 0%, rgba(8, 26, 46, 0) 70%);
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
             bottom: -100px;
             left: -100px;
             z-index: 1;
@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 45px 40px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
             backdrop-filter: blur(15px);
             position: relative;
             z-index: 10;
@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .logo-icon {
             width: 60px;
             height: 60px;
-            background-color: rgba(242, 245, 247, 0.05);
+            background-color: rgba(0, 0, 0, 0.03);
             border-radius: 50%;
             color: var(--primary-hover);
             display: flex;
@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 1.8rem;
             margin: 0 auto 20px auto;
             border: 1px solid var(--border);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
         .login-header h1 {
@@ -195,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 0.95rem;
             border: 1.5px solid var(--border);
             border-radius: var(--radius-md);
-            background-color: rgba(8, 26, 46, 0.6);
+            background-color: #FAFAFA;
             color: var(--text-main);
             transition: all 0.3s ease;
         }
@@ -203,8 +203,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .form-control:focus {
             outline: none;
             border-color: var(--primary-hover);
-            background-color: rgba(8, 26, 46, 0.9);
-            box-shadow: 0 0 0 4px rgba(159, 184, 201, 0.1);
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
         }
 
         .form-control:focus + .input-icon {
@@ -227,13 +227,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 5px 15px rgba(183, 110, 121, 0.25);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             margin-top: 10px;
         }
 
         .btn-submit:hover {
             background-color: var(--primary-hover);
-            box-shadow: 0 8px 20px rgba(183, 110, 121, 0.35);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
             transform: translateY(-1px);
         }
 

@@ -22,7 +22,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= !empty($name) ? htmlspecialchars($name) . ' - Professional Portfolio' : 'Creative Portfolio' ?></title>
     
-    <meta name="description" content="Personal Portfolio Website. Explore cinematic qualified projects, videography, photography, and work experiences.">
+    <meta name="description" content="Personal Portfolio Website. Explore professional projects, development, design, and work experiences.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,25 +36,26 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
     
     <style>
         /* =============================================
-           CINEMATIC STUDIO THEME — PALETTE v2.0
+           CLEAN BLACK AND WHITE THEME
            ============================================= */
         :root {
-            --bg-deep:        #081A2E;   /* Deepest Cinema Shadow */
-            --bg-card:        #0E2A47;   /* Studio Room Grid */
-            --border-steel:   #1F4E6B;   /* Matte Steel Blue */
-            --text-muted:     #9FB8C9;   /* Light Slate Blue */
-            --text-main:      #F2F5F7;   /* Crisp Ice White */
+            --bg-deep:        #FFFFFF;   /* Pure White Background */
+            --bg-card:        #F9FAFB;   /* Off White Card */
+            --card-bg:        #FFFFFF;   /* Main Card Bg */
+            --border-steel:   #E5E7EB;   /* Light Gray Border */
+            --text-muted:     #6B7280;   /* Muted Gray Text */
+            --text-main:      #111827;   /* Near Black Text */
 
             /* Legacy aliases kept for compat */
-            --bg-deep-navy:   #081A2E;
-            --bg-card-glass:  rgba(14, 42, 71, 0.75);
-            --accent-cyan:    #F2F5F7;
-            --accent-blue:    #9FB8C9;
-            --glass-border:   rgba(31, 78, 107, 0.6);
+            --bg-deep-navy:   #FFFFFF;
+            --bg-card-glass:  rgba(255, 255, 255, 0.9);
+            --accent-cyan:    #111827;
+            --accent-blue:    #6B7280;
+            --glass-border:   rgba(229, 231, 235, 0.8);
             --font-heading:   'Montserrat', sans-serif;
             --font-body:      'Inter', sans-serif;
-            --neon-glow:      0 0 20px rgba(242, 245, 247, 0.12);
-            --steel-glow:     0 0 25px rgba(31, 78, 107, 0.5);
+            --neon-glow:      0 4px 12px rgba(0, 0, 0, 0.05);
+            --steel-glow:     0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         * {
@@ -74,8 +75,8 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
             font-family: var(--font-body);
             background-color: var(--bg-deep);
             background-image:
-                radial-gradient(ellipse at 15% 10%, rgba(31,78,107,0.18) 0%, transparent 55%),
-                radial-gradient(ellipse at 85% 85%, rgba(31,78,107,0.12) 0%, transparent 50%);
+                radial-gradient(ellipse at 15% 10%, rgba(0,0,0,0.03) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 85%, rgba(0,0,0,0.02) 0%, transparent 50%);
             color: var(--text-main);
             line-height: 1.7;
         }
@@ -98,7 +99,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
             width: 700px;
             height: 700px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(31,78,107,0.12) 0%, rgba(8,26,46,0) 70%);
+            background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, rgba(255,255,255,0) 70%);
             pointer-events: none;
             z-index: -1;
             filter: blur(90px);
@@ -116,12 +117,12 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
         }
 
         header.scrolled {
-            background: rgba(8, 26, 46, 0.92);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             padding: 16px 0;
             border-bottom: 1px solid var(--border-steel);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
         }
 
         nav { display: flex; justify-content: space-between; align-items: center; }
@@ -204,7 +205,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
             align-items: center;
             padding-top: 120px;
             background:
-                linear-gradient(160deg, rgba(31,78,107,0.08) 0%, transparent 60%);
+                linear-gradient(160deg, rgba(0,0,0,0.03) 0%, transparent 60%);
         }
 
         .hero-layout {
@@ -229,12 +230,12 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
             border-radius: 16px;
             border: 1px solid var(--border-steel);
             overflow: hidden;
-            box-shadow: 0 0 0 1px rgba(31,78,107,0.3), 0 40px 80px rgba(0,0,0,0.6);
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 40px 80px rgba(0,0,0,0.1);
             transition: box-shadow 0.5s ease, transform 0.5s ease;
         }
         .profile-card-wrapper:hover {
             transform: translateY(-8px);
-            box-shadow: 0 0 0 1px var(--border-steel), 0 50px 100px rgba(0,0,0,0.7), var(--steel-glow);
+            box-shadow: 0 0 0 1px var(--border-steel), 0 50px 100px rgba(0,0,0,0.15), var(--steel-glow);
         }
 
         .profile-inner-frame { width: 100%; height: 100%; position: relative; }
@@ -260,7 +261,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
         /* Floating Cinematic Badges */
         .floating-pill {
             position: absolute;
-            background: rgba(8,26,46,0.88);
+            background: rgba(255,255,255,0.88);
             border: 1px solid var(--border-steel);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
@@ -274,7 +275,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--text-main);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
             animation: floatingMotion 5s ease-in-out infinite alternate;
             z-index: 5;
             transition: all 0.3s ease;
@@ -384,7 +385,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
         /* ══════════════════════════════════════════════
            FILMSTRIP TIMELINE — Production Ledger Style
            ══════════════════════════════════════════════ */
-        #experiences { background: rgba(8,26,46,0.6); }
+        #experiences { background: rgba(249,250,251,0.6); }
 
         .timeline-container {
             position: relative;
@@ -421,13 +422,13 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
             left: 50%; top: 28px;
             transform: translateX(-50%);
             z-index: 5;
-            box-shadow: 0 0 0 5px rgba(8,26,46,0.9), 0 0 18px rgba(242,245,247,0.3);
+            box-shadow: 0 0 0 5px rgba(255,255,255,0.9), 0 0 18px rgba(0,0,0,0.05);
             transition: all 0.4s ease;
         }
         .timeline-node:hover .timeline-pointer {
             background: var(--text-main);
             transform: translateX(-50%) scale(1.5);
-            box-shadow: 0 0 0 6px rgba(8,26,46,0.95), 0 0 30px rgba(242,245,247,0.5);
+            box-shadow: 0 0 0 6px rgba(255,255,255,0.95), 0 0 30px rgba(0,0,0,0.1);
         }
 
         /* Card — industrial dark architecture */
@@ -438,7 +439,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
             border-radius: 12px;
             padding: 32px 36px;
             position: relative;
-            box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.05);
             transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
             overflow: hidden;
         }
@@ -453,7 +454,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
         .timeline-node:hover .timeline-bubble {
             transform: translateY(-6px) scale(1.01);
             border-color: var(--text-muted);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
         }
         .timeline-node:hover .timeline-bubble::before { opacity: 1; }
 
@@ -465,7 +466,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
             font-size: 0.72rem;
             font-weight: 700;
             color: var(--text-muted);
-            background: rgba(31,78,107,0.25);
+            background: rgba(0,0,0,0.05);
             border: 1px solid var(--border-steel);
             padding: 4px 12px;
             border-radius: 4px;
@@ -525,7 +526,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
             padding: 24px;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             display: flex;
             flex-direction: column;
@@ -534,18 +535,18 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
 
         .cert-glass-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(0, 242, 254, 0.3);
-            box-shadow: 0 30px 60px rgba(0, 242, 254, 0.08);
+            border-color: rgba(0, 0, 0, 0.15);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
         }
 
         .cert-asset-box {
             width: 100%;
             height: 190px;
-            background: #020711;
+            background: #F3F4F6;
             border-radius: 16px;
             overflow: hidden;
             margin-bottom: 20px;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
             position: relative;
             display: flex;
             align-items: center;
@@ -677,14 +678,14 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
         .portfolio-neon-card:hover {
             transform: translateY(-10px);
             border-color: var(--text-muted);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5), var(--steel-glow);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1), var(--steel-glow);
         }
 
         /* 16:9 widescreen viewport */
         .portfolio-carousel-viewport {
             width: 100%;
             aspect-ratio: 16 / 9;
-            background: #050D18;
+            background: #F3F4F6;
             position: relative;
             overflow: hidden;
         }
@@ -694,8 +695,8 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
 
         .project-swiper .swiper-button-next,
         .project-swiper .swiper-button-prev {
-            color: var(--text-main);
-            background: rgba(8,26,46,0.75);
+            color: var(--bg-deep);
+            background: rgba(255,255,255,0.9);
             border: 1px solid var(--border-steel);
             width: 34px; height: 34px; border-radius: 6px;
             opacity: 0; transition: all 0.3s ease;
@@ -757,7 +758,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
         }
         .btn-view-all:hover {
             background: var(--text-main); color: var(--bg-deep);
-            box-shadow: 0 0 40px rgba(242,245,247,0.2);
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
             transform: translateY(-3px);
         }
         .portfolio-cta { text-align: center; }
@@ -766,7 +767,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(4, 10, 20, 0.92);
+            background-color: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             display: flex;
@@ -785,7 +786,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
         }
 
         .modal-box {
-            background-color: #060F1E;
+            background-color: #FFFFFF;
             border: 1px solid var(--glass-border);
             border-radius: 30px;
             width: 100%;
@@ -794,7 +795,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            box-shadow: 0 30px 70px rgba(0,0,0,0.8);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.15);
             transform: scale(0.92);
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1.1);
         }
@@ -847,16 +848,17 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
             overflow-y: auto;
             flex-grow: 1;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            background: #050D18;
+            justify-content: flex-start;
+            background: #F9FAFB;
         }
         .modal-main-viewport img { max-width:100%; max-height:60vh; border-radius:10px; object-fit:contain; }
         .modal-main-viewport iframe { width:100%; height:58vh; border:none; border-radius:10px; }
 
         /* Project split-pane */
-        .modal-split-layout { display: flex; flex-direction: column; flex-grow: 1; overflow-y: auto; background-color: #050D18; max-height: 75vh; }
-        .modal-gallery-pane { position: relative; background: #030A16; min-height: 450px; width: 100%; flex-shrink: 0; }
+        .modal-split-layout { display: flex; flex-direction: column; flex-grow: 1; overflow-y: auto; background-color: #FFFFFF; max-height: 75vh; }
+        .modal-gallery-pane { position: relative; background: #F9FAFB; min-height: 450px; width: 100%; flex-shrink: 0; }
         .modal-swiper { width:100%; height:100%; position:absolute; }
         .modal-swiper .swiper-slide { display:flex; align-items:center; justify-content:center; }
         .modal-swiper .swiper-slide img { width:100%; height:100%; object-fit:contain; }
@@ -905,16 +907,16 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
 
         /* Footer System */
         footer {
-            background-color: #02060f;
+            background-color: #F9FAFB;
             padding: 70px 0;
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            border-top: 1px solid var(--border-steel);
         }
 
-        footer .logo { justify-content: center; margin-bottom: 25px; }
+        footer .logo { justify-content: center; margin-bottom: 25px; color: var(--text-main); }
         footer p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px; }
-        footer a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
-        footer a:hover { color: var(--accent-cyan); }
+        footer a { color: var(--text-main); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        footer a:hover { color: var(--text-muted); }
 
         /* MULTI-DEVICE RESPONSIVE LAYOUT MATRIX */
         @media (max-width: 991px) {
@@ -1041,8 +1043,8 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
                                 <img src="files/<?= htmlspecialchars($photo) ?>" alt="Portrait Profile">
                             <?php else: ?>
                                 <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #040d1a; color: var(--accent-cyan)">
-                                    <i class="fa-solid fa-video style="font-size: 2.5rem; margin-bottom: 10px;"></i>
-                                    <span style="font-size: 0.75rem; letter-spacing: 2px; font-weight: 600;">STUDIO FRAME</span>
+                                    <i class="fa-solid fa-user" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+                                    <span style="font-size: 0.75rem; letter-spacing: 2px; font-weight: 600;">PROFILE</span>
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -1102,7 +1104,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
                                     <h3 class="timeline-role"><?= htmlspecialchars($exp['position']) ?></h3>
                                 <?php endif; ?>
                                 <?php if (!empty($exp['company'])): ?>
-                                    <div class="timeline-org"><i class="fa-solid fa-film"></i><span><?= htmlspecialchars($exp['company']) ?></span></div>
+                                    <div class="timeline-org"><i class="fa-solid fa-building"></i><span><?= htmlspecialchars($exp['company']) ?></span></div>
                                 <?php endif; ?>
                                 <?php if (!empty($exp['description'])): ?>
                                     <p class="timeline-paragraph"><?= nl2br(htmlspecialchars($exp['description'])) ?></p>
@@ -1126,19 +1128,19 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
                 <div class="cert-slider-outer" data-aos="fade-up" data-aos-duration="1200">
                     <div class="cert-swiper-container">
                         <div class="cert-slider-track">
-                            <?php foreach ($certificates as $cert): ?>
+                            <?php foreach ($certificates as $index => $cert): ?>
                                 <div class="cert-glass-card">
                                     <div>
-                                        <div class="cert-asset-box" onclick="openDocModal('files/<?= htmlspecialchars($cert['file']) ?>', '<?= htmlspecialchars(addslashes($cert['name'])) ?>', '<?= htmlspecialchars(addslashes($cert['issuer'])) ?>')">
+                                        <div class="cert-asset-box" onclick="openDocModal(<?= $index ?>)">
                                             <?php if (!empty($cert['file']) && file_exists(__DIR__ . '/files/' . $cert['file'])): 
                                                 $ext = strtolower(pathinfo($cert['file'], PATHINFO_EXTENSION));
                                                 if (in_array($ext, ['jpg', 'jpeg', 'png'])): ?>
                                                     <img src="files/<?= htmlspecialchars($cert['file']) ?>" alt="Credential Document">
                                                 <?php elseif ($ext === 'pdf'): ?>
-                                                    <iframe src="files/<?= htmlspecialchars($cert['file']) ?>#page=1&toolbar=0&navpanes=0" scrolling="no"></iframe>
-                                                    <div class="asset-shield-overlay"></div>
-                                                <?php else: ?>
-                                                    <div class="icon-fallback"><i class="fa-solid fa-file-lines"></i></div>
+                                                    <div class="cert-thumb-pdf" data-pdf-src="files/<?= htmlspecialchars($cert['file']) ?>" style="width: 100%; height: 100%; position: relative;">
+                                                        <canvas class="pdf-canvas" style="width: 100%; display: none;"></canvas>
+                                                        <div class="pdf-loading" style="position: absolute; top:50%; left:50%; transform:translate(-50%, -50%); color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i></div>
+                                                    </div>
                                                 <?php endif; ?>
                                             <?php else: ?>
                                                 <div class="icon-fallback"><i class="fa-solid fa-triangle-exclamation"></i></div>
@@ -1153,7 +1155,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
                                             <?php endif; ?>
                                         </div>
                                     </div>
-                                    <button class="btn-action-trigger" onclick="openDocModal('files/<?= htmlspecialchars($cert['file']) ?>', '<?= htmlspecialchars(addslashes($cert['name'])) ?>', '<?= htmlspecialchars(addslashes($cert['issuer'])) ?>')">
+                                    <button class="btn-action-trigger" onclick="openDocModal(<?= $index ?>)">
                                         <i class="fa-solid fa-expand"></i><span>EXPAND PREVIEW</span>
                                     </button>
                                 </div>
@@ -1175,8 +1177,8 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
         <section id="portfolio">
             <div class="container">
                 <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
-                    <h2>Cinematic <span>Showcase</span></h2>
-                    <p>Explore production records, creative photography arrays, and external video assets.</p>
+                    <h2>Project <span>Showcase</span></h2>
+                    <p>Explore professional project records, creative developments, and external assets.</p>
                 </div>
                 
                 <div class="portfolio-matrix">
@@ -1207,7 +1209,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
                                                             <iframe src="files/<?= htmlspecialchars($file) ?>#page=1&toolbar=0&navpanes=0" scrolling="no"></iframe>
                                                             <div class="asset-shield-overlay"></div>
                                                         <?php else: ?>
-                                                            <div class="icon-fallback" style="font-size:3rem; color:var(--accent-blue)"><i class="fa-solid fa-clapperboard"></i></div>
+                                                            <div class="icon-fallback" style="font-size:3rem; color:var(--text-muted)"><i class="fa-solid fa-image"></i></div>
                                                         <?php endif; ?>
                                                     </div>
                                                 <?php endforeach; ?>
@@ -1246,7 +1248,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
 
                 <div class="portfolio-cta" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                     <a href="projects.php" class="btn-view-all">
-                        <i class="fa-solid fa-film"></i>
+                        <i class="fa-solid fa-diagram-project"></i>
                         <span>VIEW ALL PROJECTS</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -1258,7 +1260,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
     <footer>
         <div class="container">
             <a href="#hero" class="logo">
-                <i class="fa-solid fa-clapperboard"></i>
+                <i class="fa-solid fa-laptop-code"></i>
                 <span><?= !empty($name) ? htmlspecialchars($name) : 'Website' ?></span>
             </a>
             <p>&copy; <?= date('Y') ?> <?= htmlspecialchars($name) ?>. All Rights Reserved.</p>
@@ -1267,6 +1269,8 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
     </footer>
 
     <div class="modal-overlay" id="documentModal" onclick="closeDocModal(event)">
+        <button class="cert-modal-nav cert-modal-prev" id="docModalPrev" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); background: #FFF; border: 1px solid var(--border-steel); color: var(--text-main); font-size: 24px; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 2010; transition: all 0.3s;" onclick="navDocModal(-1, event)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="cert-modal-nav cert-modal-next" id="docModalNext" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: #FFF; border: 1px solid var(--border-steel); color: var(--text-main); font-size: 24px; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 2010; transition: all 0.3s;" onclick="navDocModal(1, event)"><i class="fa-solid fa-chevron-right"></i></button>
         <div class="modal-box" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <div class="modal-title-group">
@@ -1283,7 +1287,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
         <div class="modal-box" onclick="event.stopPropagation()" style="max-width: 900px;">
             <div class="modal-header">
                 <div class="modal-title-group">
-                    <h3 id="modalProjTitle">Production Ledger</h3>
+                    <h3 id="modalProjTitle">Project Details</h3>
                 </div>
                 <button class="modal-close-trigger" onclick="hideProjectModal()">&times;</button>
             </div>
@@ -1307,8 +1311,11 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script>
+        if (typeof pdfjsLib !== 'undefined') {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        }
         // Initialization Matrix for Internal Card Swiper Sliders
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.project-swiper').forEach(swEl => {
@@ -1352,7 +1359,9 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
                     if (['jpg', 'jpeg', 'png'].includes(ext)) {
                         nodeContent = `<img src="files/${f}" alt="Slide Matrix">`;
                     } else if (ext === 'pdf') {
-                        nodeContent = `<iframe src="files/${f}#toolbar=0" type="application/pdf"></iframe>`;
+                        nodeContent = `<div class="portfolio-pdf-container" data-pdf-src="files/${f}" style="width:100%; height:100%; overflow-y:auto; position:relative;">
+                                         <div class="pdf-loading" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i></div>
+                                       </div>`;
                     } else {
                         nodeContent = `<div style="color:var(--text-muted)"><i class="fa-solid fa-file"></i> Direct view not supported</div>`;
                     }
@@ -1373,6 +1382,7 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
                     pagination: { el: '.modal-swiper .swiper-pagination', clickable: true },
                     navigation: { nextEl: '.modal-swiper .swiper-button-next', prevEl: '.modal-swiper .swiper-button-prev' },
                 });
+                renderPortfolioPdfs();
             }, 60);
         }
 
@@ -1388,22 +1398,83 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
 
         function closeProjectModal(e) { if (e.target.id === 'projectModal') hideProjectModal(); }
 
+        const certDataList = <?= json_encode(array_values($certificates)) ?>;
+        let currentDocIndex = 0;
+
         // Expand Doc Modal Viewports
-        function openDocModal(fUrl, title, issuer) {
+        async function openDocModal(index) {
+            if (index < 0 || index >= certDataList.length) return;
+            currentDocIndex = index;
+            const cert = certDataList[index];
+            const fUrl = 'files/' + cert.file;
+            const title = cert.name;
+            const issuer = cert.issuer;
+
             document.getElementById('modalDocTitle').textContent = title;
             document.getElementById('modalDocIssuer').textContent = "Issuer Authority: " + issuer;
             const body = document.getElementById('modalDocBody');
+            body.innerHTML = '<div style="text-align:center; padding: 40px; color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><p style="margin-top:10px;">Loading Document...</p></div>';
             
-            const ext = fUrl.split('.').pop().toLowerCase();
-            if (ext === 'pdf') {
-                body.innerHTML = `<iframe src="${fUrl}" title="${title}" type="application/pdf"></iframe>`;
-            } else if (['jpg', 'jpeg', 'png'].includes(ext)) {
-                body.innerHTML = `<img src="${fUrl}" alt="${title}">`;
-            } else {
-                body.innerHTML = `<p style="color:var(--text-muted)">Preview format error.</p>`;
-            }
             document.getElementById('documentModal').classList.add('active');
-            document.body.style.overflow = 'hidden'; document.body.style.paddingRight = (window.innerWidth - document.documentElement.clientWidth) + 'px';
+            
+            // Show or hide next/prev buttons
+            document.getElementById('docModalPrev').style.display = certDataList.length > 1 ? 'flex' : 'none';
+            document.getElementById('docModalNext').style.display = certDataList.length > 1 ? 'flex' : 'none';
+
+            document.body.style.overflow = 'hidden'; 
+            document.body.style.paddingRight = (window.innerWidth - document.documentElement.clientWidth) + 'px';
+
+            const ext = fUrl.split('.').pop().toLowerCase();
+            if (ext === 'pdf' && typeof pdfjsLib !== 'undefined') {
+                try {
+                    const loadingTask = pdfjsLib.getDocument({
+                        url: fUrl,
+                        cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+                        cMapPacked: true,
+                        disableAutoFetch: true,
+                        disableStream: true
+                    });
+                    const pdf = await loadingTask.promise;
+                    const totalPages = pdf.numPages;
+                    
+                    const fragment = document.createDocumentFragment();
+                    for (let i = 1; i <= totalPages; i++) {
+                        const page = await pdf.getPage(i);
+                        const desiredWidth = Math.min(window.innerWidth * 0.85, 800);
+                        const unscaledVP = page.getViewport({ scale: 1 });
+                        const scale = Math.max(1.0, desiredWidth / unscaledVP.width);
+                        const viewport = page.getViewport({ scale });
+
+                        const wrapper = document.createElement('div');
+                        wrapper.style.marginBottom = '20px';
+                        wrapper.style.textAlign = 'center';
+
+                        const canvas = document.createElement('canvas');
+                        canvas.width = viewport.width;
+                        canvas.height = viewport.height;
+                        canvas.style.maxWidth = '100%';
+                        canvas.style.height = 'auto';
+                        canvas.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+
+                        const ctx = canvas.getContext('2d');
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        await page.render({ canvasContext: ctx, viewport }).promise;
+
+                        wrapper.appendChild(canvas);
+                        fragment.appendChild(wrapper);
+                    }
+                    body.innerHTML = '';
+                    body.appendChild(fragment);
+                } catch (err) {
+                    console.error('PDF render failed:', err);
+                    body.innerHTML = `<p style="color:var(--danger); text-align:center;">Failed to load PDF.</p>`;
+                }
+            } else if (['jpg', 'jpeg', 'png'].includes(ext)) {
+                body.innerHTML = `<img src="${fUrl}" alt="${title}" style="max-width:100%; height:auto;">`;
+            } else {
+                body.innerHTML = `<p style="color:var(--text-muted); text-align:center;">Preview format not supported directly.</p>`;
+            }
         }
 
         function hideDocModal() {
@@ -1414,6 +1485,71 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
         }
 
         function closeDocModal(e) { if (e.target.id === 'documentModal') hideDocModal(); }
+
+        function navDocModal(dir, e) {
+            if (e) e.stopPropagation();
+            let newIndex = currentDocIndex + dir;
+            if (newIndex < 0) newIndex = certDataList.length - 1;
+            if (newIndex >= certDataList.length) newIndex = 0;
+            openDocModal(newIndex);
+        }
+
+        async function renderPortfolioPdfs() {
+            if (typeof pdfjsLib === 'undefined') return;
+            const pdfContainers = document.querySelectorAll('.portfolio-pdf-container[data-pdf-src]');
+            
+            pdfContainers.forEach(async (container) => {
+                const pdfUrl = container.getAttribute('data-pdf-src');
+                if (container.dataset.rendered === 'true') return;
+                
+                try {
+                    const loadingTask = pdfjsLib.getDocument({
+                        url: pdfUrl,
+                        cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+                        cMapPacked: true,
+                        disableAutoFetch: true,
+                        disableStream: true
+                    });
+                    const pdf = await loadingTask.promise;
+                    const totalPages = pdf.numPages;
+                    const fragment = document.createDocumentFragment();
+                    
+                    for (let i = 1; i <= totalPages; i++) {
+                        const page = await pdf.getPage(i);
+                        const desiredWidth = Math.min(window.innerWidth * 0.85, 800);
+                        const unscaledVP = page.getViewport({ scale: 1 });
+                        const scale = Math.max(1.0, desiredWidth / unscaledVP.width);
+                        const viewport = page.getViewport({ scale });
+
+                        const wrapper = document.createElement('div');
+                        wrapper.style.marginBottom = '20px';
+                        wrapper.style.textAlign = 'center';
+
+                        const canvas = document.createElement('canvas');
+                        canvas.width = viewport.width;
+                        canvas.height = viewport.height;
+                        canvas.style.maxWidth = '100%';
+                        canvas.style.height = 'auto';
+                        canvas.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+
+                        const ctx = canvas.getContext('2d');
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        await page.render({ canvasContext: ctx, viewport }).promise;
+
+                        wrapper.appendChild(canvas);
+                        fragment.appendChild(wrapper);
+                    }
+                    
+                    container.innerHTML = '';
+                    container.appendChild(fragment);
+                    container.dataset.rendered = 'true';
+                } catch (err) {
+                    console.error('Portfolio PDF render failed:', err);
+                    container.innerHTML = `<p style="padding: 20px; text-align: center; color: var(--danger);">Failed to load PDF.</p>`;
+                }
+            });
+        }
 
         // Keyboard Esc Key Listener Bindings
         document.addEventListener('keydown', function(e) {
@@ -1520,7 +1656,52 @@ $photo = isset($biodata['photo']) ? $biodata['photo'] : '';
             updateCertSlider();
         }
 
-        window.addEventListener('DOMContentLoaded', () => { initCertSlider(); AOS.init({ once: true, offset: 100 }); });
+        // Render PDF Thumbnails for slider cards
+        function renderPdfThumbnails() {
+            if (typeof pdfjsLib !== 'undefined') {
+                const pdfNodes = document.querySelectorAll('.cert-thumb-pdf[data-pdf-src]');
+                pdfNodes.forEach(async (el) => {
+                    const pdfUrl = el.getAttribute('data-pdf-src');
+                    const canvas = el.querySelector('.pdf-canvas');
+                    const loading = el.querySelector('.pdf-loading');
+                    if (!canvas || !pdfUrl) return;
+
+                    try {
+                        const loadingTask = pdfjsLib.getDocument({
+                            url: pdfUrl,
+                            cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+                            cMapPacked: true,
+                            disableAutoFetch: true,
+                            disableStream: true
+                        });
+                        const pdf = await loadingTask.promise;
+                        const page = await pdf.getPage(1);
+                        const viewport = page.getViewport({ scale: 1.5 });
+
+                        canvas.width = viewport.width;
+                        canvas.height = viewport.height;
+                        const ctx = canvas.getContext('2d');
+
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        await page.render({ canvasContext: ctx, viewport }).promise;
+
+                        canvas.style.display = 'block';
+                        if (loading) loading.style.display = 'none';
+                    } catch (err) {
+                        console.warn('PDF thumbnail failed:', pdfUrl, err);
+                        if (canvas) canvas.style.display = 'none';
+                        if (loading) loading.innerHTML = '<i class="fa-solid fa-file-pdf" style="font-size:2rem; color:var(--text-muted);"></i>';
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => { 
+            initCertSlider(); 
+            renderPdfThumbnails();
+            AOS.init({ once: true, offset: 100 }); 
+        });
         window.addEventListener('resize', initCertSlider);
     </script>
 </body>

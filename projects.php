@@ -36,25 +36,26 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
     
     <style>
         /* =============================================
-           CINEMATIC STUDIO THEME — PALETTE v2.0
+           CLEAN BLACK AND WHITE THEME
            ============================================= */
         :root {
-            --bg-deep:        #081A2E;   /* Deepest Cinema Shadow */
-            --bg-card:        #0E2A47;   /* Studio Room Grid */
-            --border-steel:   #1F4E6B;   /* Matte Steel Blue */
-            --text-muted:     #9FB8C9;   /* Light Slate Blue */
-            --text-main:      #F2F5F7;   /* Crisp Ice White */
+            --bg-deep:        #FFFFFF;   /* Pure White Background */
+            --bg-card:        #F9FAFB;   /* Off White Card */
+            --card-bg:        #FFFFFF;   /* Main Card Bg */
+            --border-steel:   #E5E7EB;   /* Light Gray Border */
+            --text-muted:     #6B7280;   /* Muted Gray Text */
+            --text-main:      #111827;   /* Near Black Text */
 
             /* Legacy aliases kept for compat */
-            --bg-deep-navy:   #081A2E;
-            --bg-card-glass:  rgba(14, 42, 71, 0.75);
-            --accent-cyan:    #F2F5F7;
-            --accent-blue:    #9FB8C9;
-            --glass-border:   rgba(31, 78, 107, 0.6);
+            --bg-deep-navy:   #FFFFFF;
+            --bg-card-glass:  rgba(255, 255, 255, 0.9);
+            --accent-cyan:    #111827;
+            --accent-blue:    #6B7280;
+            --glass-border:   rgba(229, 231, 235, 0.8);
             --font-heading:   'Montserrat', sans-serif;
             --font-body:      'Inter', sans-serif;
-            --neon-glow:      0 0 20px rgba(242, 245, 247, 0.12);
-            --steel-glow:     0 0 25px rgba(31, 78, 107, 0.5);
+            --neon-glow:      0 4px 12px rgba(0, 0, 0, 0.05);
+            --steel-glow:     0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         * {
@@ -74,8 +75,8 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
             font-family: var(--font-body);
             background-color: var(--bg-deep);
             background-image:
-                radial-gradient(ellipse at 15% 10%, rgba(31,78,107,0.18) 0%, transparent 55%),
-                radial-gradient(ellipse at 85% 85%, rgba(31,78,107,0.12) 0%, transparent 50%);
+                radial-gradient(ellipse at 15% 10%, rgba(0,0,0,0.03) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 85%, rgba(0,0,0,0.02) 0%, transparent 50%);
             color: var(--text-main);
             line-height: 1.7;
         }
@@ -98,7 +99,7 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
             width: 700px;
             height: 700px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(31,78,107,0.12) 0%, rgba(8,26,46,0) 70%);
+            background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, rgba(255,255,255,0) 70%);
             pointer-events: none;
             z-index: -1;
             filter: blur(90px);
@@ -116,12 +117,12 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
         }
 
         header.scrolled {
-            background: rgba(8, 26, 46, 0.92);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             padding: 16px 0;
             border-bottom: 1px solid var(--border-steel);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
         }
 
         nav { display: flex; justify-content: space-between; align-items: center; }
@@ -771,7 +772,7 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(4, 10, 20, 0.92);
+            background-color: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             display: flex;
@@ -790,7 +791,7 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
         }
 
         .modal-box {
-            background-color: #060F1E;
+            background-color: #FFFFFF;
             border: 1px solid var(--glass-border);
             border-radius: 30px;
             width: 100%;
@@ -852,16 +853,17 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
             overflow-y: auto;
             flex-grow: 1;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            background: #050D18;
+            justify-content: flex-start;
+            background: #F9FAFB;
         }
         .modal-main-viewport img { max-width:100%; max-height:60vh; border-radius:10px; object-fit:contain; }
         .modal-main-viewport iframe { width:100%; height:58vh; border:none; border-radius:10px; }
 
         /* Project split-pane */
-        .modal-split-layout { display: flex; flex-direction: column; flex-grow: 1; overflow-y: auto; background-color: #050D18; max-height: 75vh; }
-        .modal-gallery-pane { position: relative; background: #030A16; min-height: 450px; width: 100%; flex-shrink: 0; }
+        .modal-split-layout { display: flex; flex-direction: column; flex-grow: 1; overflow-y: auto; background-color: #FFFFFF; max-height: 75vh; }
+        .modal-gallery-pane { position: relative; background: #F9FAFB; min-height: 450px; width: 100%; flex-shrink: 0; }
         .modal-swiper { width:100%; height:100%; position:absolute; }
         .modal-swiper .swiper-slide { display:flex; align-items:center; justify-content:center; }
         .modal-swiper .swiper-slide img { width:100%; height:100%; object-fit:contain; }
@@ -910,16 +912,16 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
 
         /* Footer System */
         footer {
-            background-color: #02060f;
+            background-color: #F9FAFB;
             padding: 70px 0;
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            border-top: 1px solid var(--border-steel);
         }
 
-        footer .logo { justify-content: center; margin-bottom: 25px; }
+        footer .logo { justify-content: center; margin-bottom: 25px; color: var(--text-main); }
         footer p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px; }
-        footer a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
-        footer a:hover { color: var(--accent-cyan); }
+        footer a { color: var(--text-main); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        footer a:hover { color: var(--text-muted); }
 
         /* MULTI-DEVICE RESPONSIVE LAYOUT MATRIX */
         @media (max-width: 991px) {
@@ -1044,8 +1046,8 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
             </div>
 
             <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
-                <h2><span>PRODUCTION</span> LEDGER</h2>
-                <p>A comprehensive documentation and overview of all projects, videography, and visual platforms I have produced.</p>
+                <h2><span>PROJECT</span> DETAILS</h2>
+                <p>A comprehensive documentation and overview of all development projects, software, and professional platforms I have produced.</p>
             </div>
             
             <?php if (empty($portfolio)): ?>
@@ -1130,7 +1132,7 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
     <footer>
         <div class="container">
             <a href="index.php" class="logo">
-                <i class="fa-solid fa-film"></i>
+                <i class="fa-solid fa-briefcase"></i>
                 <span><?= !empty($name) ? htmlspecialchars($name) : 'Personal Website' ?></span>
             </a>
             <p>&copy; <?= date('Y') ?> <?= htmlspecialchars($name) ?>. All Rights Reserved.</p>
@@ -1157,7 +1159,7 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
         <div class="modal-box" onclick="event.stopPropagation()" style="max-width: 900px;">
             <div class="modal-header">
                 <div class="modal-title-group">
-                    <h3 id="modalProjTitle">Production Ledger</h3>
+                    <h3 id="modalProjTitle">Project Details</h3>
                 </div>
                 <button class="modal-close-trigger" onclick="hideProjectModal()">&times;</button>
             </div>
@@ -1184,6 +1186,12 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
     
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- PDF.js Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
     
     <script>
         // Initialize AOS animations
@@ -1254,7 +1262,9 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
                     if (['jpg', 'jpeg', 'png'].includes(ext)) {
                         slideContent = `<img src="files/${file}" alt="${proj.title}">`;
                     } else if (ext === 'pdf') {
-                        slideContent = `<iframe src="files/${file}#toolbar=0" type="application/pdf"></iframe>`;
+                        slideContent = `<div class="portfolio-pdf-container" data-pdf-src="files/${file}" style="width:100%; height:100%; overflow-y:auto; position:relative;">
+                                         <div class="pdf-loading" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i></div>
+                                       </div>`;
                     } else {
                         slideContent = `
                             <div class="no-preview" style="color: #94a3b8; font-size: 3rem; display: flex; flex-direction: column; align-items: center; gap: 10px;">
@@ -1290,7 +1300,65 @@ $role = isset($biodata['role']) ? $biodata['role'] : '';
                         prevEl: '.modal-swiper .swiper-button-prev',
                     },
                 });
+                renderPortfolioPdfs();
             }, 50);
+        }
+
+        async function renderPortfolioPdfs() {
+            if (typeof pdfjsLib === 'undefined') return;
+            const pdfContainers = document.querySelectorAll('.portfolio-pdf-container[data-pdf-src]');
+            
+            pdfContainers.forEach(async (container) => {
+                const pdfUrl = container.getAttribute('data-pdf-src');
+                if (container.dataset.rendered === 'true') return;
+                
+                try {
+                    const loadingTask = pdfjsLib.getDocument({
+                        url: pdfUrl,
+                        cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+                        cMapPacked: true,
+                        disableAutoFetch: true,
+                        disableStream: true
+                    });
+                    const pdf = await loadingTask.promise;
+                    const totalPages = pdf.numPages;
+                    const fragment = document.createDocumentFragment();
+                    
+                    for (let i = 1; i <= totalPages; i++) {
+                        const page = await pdf.getPage(i);
+                        const desiredWidth = Math.min(window.innerWidth * 0.85, 800);
+                        const unscaledVP = page.getViewport({ scale: 1 });
+                        const scale = Math.max(1.0, desiredWidth / unscaledVP.width);
+                        const viewport = page.getViewport({ scale });
+
+                        const wrapper = document.createElement('div');
+                        wrapper.style.marginBottom = '20px';
+                        wrapper.style.textAlign = 'center';
+
+                        const canvas = document.createElement('canvas');
+                        canvas.width = viewport.width;
+                        canvas.height = viewport.height;
+                        canvas.style.maxWidth = '100%';
+                        canvas.style.height = 'auto';
+                        canvas.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+
+                        const ctx = canvas.getContext('2d');
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        await page.render({ canvasContext: ctx, viewport }).promise;
+
+                        wrapper.appendChild(canvas);
+                        fragment.appendChild(wrapper);
+                    }
+                    
+                    container.innerHTML = '';
+                    container.appendChild(fragment);
+                    container.dataset.rendered = 'true';
+                } catch (err) {
+                    console.error('Portfolio PDF render failed:', err);
+                    container.innerHTML = `<p style="padding: 20px; text-align: center; color: var(--danger);">Failed to load PDF.</p>`;
+                }
+            });
         }
 
         function hideProjectModal() {

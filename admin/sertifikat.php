@@ -272,20 +272,74 @@ if ($action === 'edit' && !empty($edit_id)) {
     </div>
 <?php endif; ?>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
-function previewFile(fileUrl) {
+if (typeof pdfjsLib !== 'undefined') {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+}
+
+async function previewFile(fileUrl) {
     const ext = fileUrl.split('.').pop().toLowerCase();
-    let content = '';
     
     if (ext === 'pdf') {
-        content = `<iframe src="${fileUrl}" width="100%" height="500px" style="border: none; border-radius: var(--radius-md);"></iframe>`;
+        const loadingContent = '<div style="text-align:center; padding: 40px; color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><p style="margin-top:10px;">Loading Document...</p></div>';
+        showAdminModal(loadingContent);
+        
+        try {
+            const loadingTask = pdfjsLib.getDocument({
+                url: fileUrl,
+                cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+                cMapPacked: true,
+                disableAutoFetch: true,
+                disableStream: true
+            });
+            const pdf = await loadingTask.promise;
+            const totalPages = pdf.numPages;
+            
+            const fragment = document.createDocumentFragment();
+            for (let i = 1; i <= totalPages; i++) {
+                const page = await pdf.getPage(i);
+                const desiredWidth = Math.min(window.innerWidth * 0.85, 800);
+                const unscaledVP = page.getViewport({ scale: 1 });
+                const scale = Math.max(1.0, desiredWidth / unscaledVP.width);
+                const viewport = page.getViewport({ scale });
+
+                const wrapper = document.createElement('div');
+                wrapper.style.marginBottom = '20px';
+                wrapper.style.textAlign = 'center';
+
+                const canvas = document.createElement('canvas');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                canvas.style.maxWidth = '100%';
+                canvas.style.height = 'auto';
+                canvas.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                await page.render({ canvasContext: ctx, viewport }).promise;
+
+                wrapper.appendChild(canvas);
+                fragment.appendChild(wrapper);
+            }
+            
+            const body = document.getElementById('adminModalBody');
+            body.innerHTML = '';
+            body.appendChild(fragment);
+            
+        } catch (err) {
+            console.error('PDF render failed:', err);
+            const body = document.getElementById('adminModalBody');
+            body.innerHTML = `<p style="padding: 20px; text-align: center; color: var(--danger);">Failed to load PDF.</p>`;
+        }
     } else if (['jpg', 'jpeg', 'png'].includes(ext)) {
-        content = `<img src="${fileUrl}" alt="Certificate Preview" style="width: 100%; height: auto; max-height: 80vh; object-fit: contain; border-radius: var(--radius-md);">`;
+        const content = `<img src="${fileUrl}" alt="Certificate Preview" style="width: 100%; height: auto; max-height: 80vh; object-fit: contain; border-radius: var(--radius-md);">`;
+        showAdminModal(content);
     } else {
-        content = `<p style="padding: 20px; text-align: center; color: var(--danger);">File format not supported for direct preview.</p>`;
+        const content = `<p style="padding: 20px; text-align: center; color: var(--danger);">File format not supported for direct preview.</p>`;
+        showAdminModal(content);
     }
-    
-    showAdminModal(content);
 }
 </script>
 

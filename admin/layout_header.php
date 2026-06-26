@@ -43,7 +43,7 @@ $admin_name = !empty($db_data['biodata']['name']) ? $db_data['biodata']['name'] 
     <!-- Fixed Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-brand">
-            <i class="fa-solid fa-film"></i>
+            <i class="fa-solid fa-briefcase"></i>
             <h2>Personal Website</h2>
             <button class="sidebar-close-mobile" onclick="toggleSidebar()" style="display: none; background: none; border: none; font-size: 1.25rem; color: var(--text-muted); cursor: pointer; margin-left: auto;">
                 <i class="fa-solid fa-xmark"></i>

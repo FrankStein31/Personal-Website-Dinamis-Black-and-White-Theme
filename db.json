@@ -1,15 +1,73 @@
 {
     "biodata": {
-        "name": "",
-        "role": "",
-        "description": "",
-        "photo": ""
+        "name": "FRANKIE STEINLIE",
+        "role": "Full Stack Developer",
+        "description": "wasdwasdasd wadsasdasd",
+        "photo": "6a3de3ebd0b1f.png"
     },
-    "experiences": [],
-    "certificates": [],
-    "socmed": [],
+    "experiences": [
+        {
+            "id": "6a3de3fb8ccc0",
+            "company": "PT. TRIJAYA KOMUNIKA (Jogja Bike)",
+            "position": "Anggota - Departemen Kominfo",
+            "year": "2021",
+            "description": "wasdawsda"
+        },
+        {
+            "id": "6a3de40be5ba4",
+            "company": "PERSEDIKAB KEDIRI",
+            "position": "Software \/ IT Intern",
+            "year": "3121",
+            "description": "wadsadad"
+        }
+    ],
+    "certificates": [
+        {
+            "id": "6a3de422be95d",
+            "name": "frankie",
+            "issuer": "coba",
+            "file": "6a3de422bdb01.pdf"
+        },
+        {
+            "id": "6a3de42a4ce8c",
+            "name": "frankie",
+            "issuer": "Politeknik Negeri Malang",
+            "file": "6a3de42a4bf72.jpg"
+        },
+        {
+            "id": "6a3de4341e46b",
+            "name": ".htaccess",
+            "issuer": "24Slides",
+            "file": "6a3de4341d2b8.jpg"
+        },
+        {
+            "id": "6a3de44250f4b",
+            "name": "FRANKIE STEINLIE",
+            "issuer": "Badan Nasional Sertifikat Profesi",
+            "file": "6a3de4425048c.pdf"
+        }
+    ],
+    "socmed": [
+        {
+            "id": "6a3de46b3fa2a",
+            "platform": "LinkedIn",
+            "url": "https:\/\/steinliejoki.page.gd\/",
+            "icon": "fab fa-linkedin"
+        }
+    ],
     "settings": {
         "password": "$2y$12$CsOnWfLMy\/lOEGg64tz\/Ue2d9OPkLsQC5LMn3lYHJzOC9l\/w5Wmc."
     },
-    "portfolio": []
+    "portfolio": [
+        {
+            "id": "6a3de46145a83",
+            "title": "sdasdasda",
+            "description": "wasdasdas",
+            "link": "https:\/\/frankie-steinlie.page.gd\/",
+            "files": [
+                "6a3de45dcf57d.pdf"
+            ],
+            "file": "6a3de45dcf57d.pdf"
+        }
+    ]
 }
